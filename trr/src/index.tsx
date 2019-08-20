@@ -14,8 +14,8 @@ ReactDOM.render(
         <Router>
             <Switch>
                 <Route exact path="/" component={App} />
-                <Route exact path="/other-page" component={App} />
-          </Switch>
+{/*                 <Route exact path="/other-page" component={App} />
+ */}          </Switch>
         </Router>
     </Provider>,
  document.getElementById('root'));

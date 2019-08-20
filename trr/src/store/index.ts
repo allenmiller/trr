@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 //import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import {feedbackReducer} from './feedback/reducers';

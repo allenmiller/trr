@@ -1,16 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
 import logo from './logo.svg';
 import './App.css';
-
 import {AppState} from './store';
 import {setIsLoading} from './store/feedback/actions';
+import { withRouter, Link, RouteComponentProps } from 'react-router-dom';
 
 interface AppProps {
   isLoading: boolean,
   setIsLoading: typeof setIsLoading
 }
-class App extends React.Component<AppProps> {
+
+type PropsType = RouteComponentProps & AppProps;
+class App extends React.Component<AppProps & AppState> {
 //const App: React.FC<AppProps> = () => {
 
 toggleIsLoading = ()=> {
@@ -31,14 +34,9 @@ render() {
         </button>
 
         {this.props.isLoading ?
-        <a
-          className="App-link"
-          href="/other-page"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-                  'Learn React'
-        </a>
+        <Link to="/other-page">
+          abc
+        </Link>
           : 'The link is gone.'
         }
 
@@ -47,8 +45,8 @@ render() {
   );
 }}
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState, ownProps: PropsType) => ({
   isLoading: state.feedback.isLoading
 })
 
-export default connect(mapStateToProps, {setIsLoading})(App);
+export default withRouter(connect(mapStateToProps, {setIsLoading})(App));
