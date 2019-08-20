@@ -10,10 +10,15 @@ interface AppProps {
   isLoading: boolean,
   setIsLoading: typeof setIsLoading
 }
-
 class App extends React.Component<AppProps> {
 //const App: React.FC<AppProps> = () => {
-  render() {
+
+toggleIsLoading = ()=> {
+    console.log("toggling, current state: ", this.props.isLoading)
+    this.props.setIsLoading(!this.props.isLoading);
+}
+
+render() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +26,10 @@ class App extends React.Component<AppProps> {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <button onClick={this.toggleIsLoading}>
+                  toggle
+        </button>
+
         <a
           className="App-link"
           href="https://reactjs.org"
