@@ -11,7 +11,9 @@ interface AppProps {
   setIsLoading: typeof setIsLoading
 }
 
-const App: React.FC<AppProps> = () => {
+class App extends React.Component<AppProps> {
+//const App: React.FC<AppProps> = () => {
+  render() {
   return (
     <div className="App">
       <header className="App-header">
@@ -25,12 +27,15 @@ const App: React.FC<AppProps> = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+        {this.props.isLoading ?
+          'Learn React'
+          : 'props not loading'
+        }
         </a>
       </header>
     </div>
   );
-}
+}}
 
 const mapStateToProps = (state: AppState) => ({
   isLoading: state.feedback.isLoading
