@@ -14,9 +14,8 @@ interface SecondProps {
 }
 
 class Second extends React.Component<SecondProps> {
-//const App: React.FC<AppProps> = () => {
 
-setNewText = (event: any)=> {
+setNewText = (event: any)=> {   // TODO: follow https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16208 and strengthen typing when that gets fixed.
     console.log("toggling, current state: ", this.props.secondText)
     this.props.setSecondText(event.currentTarget.value);
 }
@@ -35,13 +34,15 @@ render() {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      </header>
 
         {this.props.isLoading ?
             'Loading'
           : 'Not loading'
         }
-      <Link to='/'>go back</Link>
-      </header>
+        <Link to='/'>
+          go back
+        </Link>
     </div>
   );
 }}
