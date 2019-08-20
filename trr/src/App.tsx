@@ -1,8 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
-const App: React.FC = () => {
+import {AppState} from './store';
+import {setIsLoading} from './store/feedback/actions';
+
+interface AppProps {
+  isLoading: boolean,
+  setIsLoading: typeof setIsLoading
+}
+
+const App: React.FC<AppProps> = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +32,8 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state: AppState) => ({
+  isLoading: state.feedback.isLoading
+})
+
+export default connect(mapStateToProps, {setIsLoading})(App);

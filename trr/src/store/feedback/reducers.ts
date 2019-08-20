@@ -2,7 +2,7 @@ import {SET_IS_LOADING, FeedbackState, FeedbackActionTypes} from "./types";
 import {setIsLoading} from './actions';
 
 const initialState: FeedbackState= {
-    isLoading: false,
+    isLoading: true,
     setIsLoading: setIsLoading
 };
 
