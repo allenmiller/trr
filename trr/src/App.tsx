@@ -12,8 +12,7 @@ interface AppProps {
   setIsLoading: typeof setIsLoading
 }
 
-type PropsType = RouteComponentProps & AppProps;
-class App extends React.Component<AppProps & AppState> {
+class App extends React.Component<AppProps> {
 //const App: React.FC<AppProps> = () => {
 
 toggleIsLoading = ()=> {
@@ -34,7 +33,7 @@ render() {
         </button>
 
         {this.props.isLoading ?
-        <Link to="/other-page">
+        <Link to="/second">
           abc
         </Link>
           : 'The link is gone.'
@@ -45,7 +44,7 @@ render() {
   );
 }}
 
-const mapStateToProps = (state: AppState, ownProps: PropsType) => ({
+const mapStateToProps = (state: AppState, routeProps: RouteComponentProps) => ({
   isLoading: state.feedback.isLoading
 })
 

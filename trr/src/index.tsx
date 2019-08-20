@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import './index.css';
 import App from './App';
+import Second from './Second';
 
 import createStore  from './store'
 
@@ -14,8 +15,8 @@ ReactDOM.render(
         <Router>
             <Switch>
                 <Route exact path="/" component={App} />
-{/*                 <Route exact path="/other-page" component={App} />
- */}          </Switch>
+                 <Route exact path="/second" component={Second} />
+          </Switch>
         </Router>
     </Provider>,
  document.getElementById('root'));
