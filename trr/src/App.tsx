@@ -30,17 +30,18 @@ render() {
                   toggle
         </button>
 
+        {this.props.isLoading ?
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="/other-page"
           target="_blank"
           rel="noopener noreferrer"
         >
-        {this.props.isLoading ?
-          'Learn React'
-          : 'props not loading'
-        }
+                  'Learn React'
         </a>
+          : 'The link is gone.'
+        }
+
       </header>
     </div>
   );
